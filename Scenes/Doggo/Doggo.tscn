@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://nlsw64llitux"]
+
+[ext_resource type="Script" uid="uid://bnewocnov3s51" path="res://Scenes/Doggo/Doggo.gd" id="1_33d1e"]
+[ext_resource type="Texture2D" uid="uid://c6jc1ug1rfd2p" path="res://assets/TransparentDog.png" id="2_33d1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ucqy"]
+size = Vector2(157, 215.137)
+
+[node name="Doggo" type="Area2D"]
+script = ExtResource("1_33d1e")
+
+[node name="Doggo" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(0.433553, 0.423101)
+texture = ExtResource("2_33d1e")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.81988)
+scale = Vector2(0.941427, 1.05839)
+shape = SubResource("RectangleShape2D_2ucqy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

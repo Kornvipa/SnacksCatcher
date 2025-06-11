@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://7bjv1ee5lsj8"]
+
+[ext_resource type="Script" uid="uid://bvw7c3b452d4x" path="res://Scenes/Game/Game.gd" id="1_gwu2e"]
+[ext_resource type="Texture2D" uid="uid://ce5dt7rb8bsxb" path="res://assets/kitchenbg.png" id="2_xbxml"]
+[ext_resource type="PackedScene" uid="uid://nlsw64llitux" path="res://Scenes/Doggo/Doggo.tscn" id="3_xbxml"]
+[ext_resource type="AudioStream" uid="uid://b456evpsfl0bo" path="res://assets/bgm_action_5.mp3" id="4_ln2h6"]
+[ext_resource type="AudioStream" uid="uid://ywom0cx73mts" path="res://assets/spell1_0.wav" id="5_y3kpf"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_gwu2e")
+
+[node name="GameBg" type="Sprite2D" parent="."]
+position = Vector2(534, 327)
+scale = Vector2(0.193652, 0.172347)
+texture = ExtResource("2_xbxml")
+
+[node name="Doggo" parent="." instance=ExtResource("3_xbxml")]
+position = Vector2(512, 576)
+scale = Vector2(0.721234, 0.65985)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ln2h6")
+volume_db = -9.699
+autoplay = true
+
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_y3kpf")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 14.0
+offset_right = 110.0
+offset_bottom = 54.0
+scale = Vector2(3.28959, 2.82196)
+theme_override_colors/font_color = Color(0.966926, 0.446395, 0.796757, 1)
+theme_override_colors/font_shadow_color = Color(0.944173, 0.863345, 0.987808, 1)
+theme_override_font_sizes/font_size = 18
+text = "000"
+
+[connection signal="area_entered" from="Doggo" to="." method="_on_doggo_area_entered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]

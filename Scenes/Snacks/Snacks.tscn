@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6gseg5lbv1ht"]
+
+[ext_resource type="Texture2D" uid="uid://be883ake0eu5b" path="res://assets/burger-double.png" id="1_ma6hk"]
+[ext_resource type="Script" uid="uid://b2qj0t1yp84hx" path="res://Scenes/Snacks/Snacks.gd" id="1_r43o6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r43o6"]
+
+[node name="Snacks" type="Area2D"]
+scale = Vector2(0.524664, 0.493745)
+script = ExtResource("1_r43o6")
+
+[node name="Burger" type="Sprite2D" parent="."]
+position = Vector2(0, 50)
+scale = Vector2(2.933, 3)
+texture = ExtResource("1_ma6hk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 53)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_r43o6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
