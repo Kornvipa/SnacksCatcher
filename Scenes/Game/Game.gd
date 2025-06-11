@@ -2,8 +2,6 @@ extends Node2D
 
 class_name Game
 
-var adfkael;fiagkn
-afe
 
 const SNACK = preload("res://Scenes/Snacks/Snacks.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
