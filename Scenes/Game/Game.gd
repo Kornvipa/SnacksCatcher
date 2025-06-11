@@ -2,6 +2,9 @@ extends Node2D
 
 class_name Game
 
+var adfkael;fiagkn
+afe
+
 const SNACK = preload("res://Scenes/Snacks/Snacks.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var game_bg: Sprite2D = $GameBg
